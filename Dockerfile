@@ -6,9 +6,10 @@ MAINTAINER nimmis <kjell.havneskold@gmail.com>
 ENV DEBIAN_FRONTEND noninteractive
 
 
-RUN wget https://icecoder.net/download-zip?version=5.0 -O /icecoder.zip && \
+RUN wget https://github.com/icecoder/ICEcoder/archive/v6.0.zip -O /icecoder.zip && \
 unzip -q /icecoder.zip -d /root/ && \
 mv /root/ICE* /var/www/html/icecoder && \
 chown -R www-data.www-data /var/www/html/icecoder && \
 rm -f /icecoder.zip 
 
+RUN groupmod -g 11533 www-data
